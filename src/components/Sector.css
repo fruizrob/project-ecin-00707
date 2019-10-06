@@ -1,0 +1,56 @@
+.sector {
+    min-height: 90%;
+    width: 18em;
+    border: 1px lightgray solid;
+    min-width: 18em;
+    margin-right: 1em;
+}
+
+.aux-container-sector:first-of-type {
+    margin-left: 1em;
+}
+
+.sector .sector-header {
+    border-bottom: 1px lightgray solid;
+    color: white;
+    margin: 0 0 -3em 0;
+    padding: 1em 1em 4em;
+}
+
+.sector .sector-category {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+
+.sector .sector-title {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -.028em;
+}
+
+
+.sector .sector-content {
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    background: white;
+}
+
+.sector .sector-description {
+    display: flex;
+    margin: 0;
+    padding: 1em 2em;
+    border-bottom: 1px lightgray solid;
+    align-items: center;
+    background: #EEEEEE;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+.sector .sector-droppable {
+    height: 60vh;
+}

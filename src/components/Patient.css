@@ -1,0 +1,21 @@
+.patient {
+    display: flex;
+    padding: 1em;
+    border-bottom: 1px lightgray solid;
+    align-items: center;
+}
+
+.patient .icon {
+    width: 32px;
+    margin-right: 1em;
+}
+
+.patient p {
+    margin: 0;
+}
+
+.patient .patient-content {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between
+}

@@ -1,0 +1,65 @@
+{
+    "patients": [
+        {
+            "id": "1",
+            "name": "Felipe Ruiz",
+            "time": "01:47",
+            "years": "22"
+        },
+        {
+            "id": "2",
+            "name": "Moises Moraga",
+            "time": "03:23",
+            "years": "22"
+        },
+        {
+            "id": "3",
+            "name": "Cristobal Montaño",
+            "time": "02:31",
+            "years": "23"
+        },
+        {
+            "id": "4",
+            "name": "Andrea",
+            "time": "00:30",
+            "years": "22"
+        }
+    ],
+    "sectors": [
+        {
+            "id": "1",
+            "title": "Sector C1",
+            "description": "Emergencia Vital",
+            "color": "rgba(128, 0, 0)",
+            "patientIds": ["1", "2", "3"]
+        },
+        {
+            "id": "2",
+            "title": "Sector C2",
+            "description": "Urgencia / Alta Complejidad",
+            "color": "rgba(255, 0, 0)",
+            "patientIds": ["4"]
+        },
+        {
+            "id": "3",
+            "title": "Sector C3",
+            "description": "Condición de Mediana Complejidad",
+            "color": "rgb(255, 102, 0)",
+            "patientIds": []
+        },
+        {
+            "id": "4",
+            "title": "Sector C4",
+            "description": "No Urgente / Baja complejidad",
+            "color" : "rgb(255, 153, 0)",
+            "patientIds": []
+        },
+        {
+            "id": "5",
+            "title": "Sector C5",
+            "description": "No Urgente / Atención General",
+            "color": "rgb(255, 204, 0)",
+            "patientIds": []
+        }
+    ]
+}
