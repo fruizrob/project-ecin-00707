@@ -1,6 +1,7 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd'
 import Patient from './Patient';
+import addIcon from '../add.svg';
 
 import './Sector.css';
 
@@ -31,6 +32,10 @@ export default function Sector(props) {
                             </div>
                         )}
                     </Droppable>
+                    <div className="sector-add-patient" onClick={() => props.addPatient(id)}>
+                        <img className="icon-add" width="14" alt="icon-patient" src={addIcon} />
+                        <p>Agregar un paciente</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,9 @@
 .homepage .homepage-container {
     display: flex;
     margin:  2em 0 0;   
-    overflow: scroll;
     height: 80vh;
+}
+
+.homepage {
+    overflow-x: scroll;
 }

@@ -15,7 +15,7 @@ export default class Home extends Component {
                 >
                     <div className="homepage-container">
                         {
-                            sectors.map((sector, index) => {
+                            sectors.map((sector) => {
                                 const sectorPatients = sector.patientIds.map(id => {
                                     let obj;
                                     patients.forEach(patient => {
@@ -26,7 +26,7 @@ export default class Home extends Component {
                                 })
 
                                 return (
-                                    <Sector sector={sector} patients={sectorPatients} key={sector.id} />
+                                    <Sector sector={sector} addPatient={this.props.addPatient} patients={sectorPatients} key={sector.id} />
                                 )
                             })
                         }

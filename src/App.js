@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
 import Home from './components/Home';
 import Header from './components/Header';
 
@@ -8,6 +7,37 @@ import data from './data.json';
 class App extends Component {
 
 	state = data;
+
+	addPatient = (id) => {
+		let sector; let indexSector;
+		this.state.sectors.forEach((item, index) => {
+			if(id === item.id) {
+				sector = item;
+				indexSector = index; 
+			}
+		})
+
+		let newPatients = this.state.patients;
+		let idNewPatient = ++newPatients.length;
+
+		newPatients.push({
+			id: idNewPatient,
+			name: "Felipe Ruiz",
+			time: "03:45",
+			years: "22"
+		});
+
+		sector.patientIds.push(idNewPatient);
+
+		const newSectors = this.state.sectors;
+		newSectors[indexSector] = sector;
+
+		this.setState({
+			sectors: newSectors,
+			patinets: newPatients,
+		})
+
+	}
 
 	onDragEnd = (result) => {
         const { destination, source, draggableId } = result;
@@ -63,13 +93,11 @@ class App extends Component {
         }
 
 		const startPatientIds = Array.from(start.patientIds);
-		console.log(startPatientIds)
         startPatientIds.splice(source.index, 1)
         const newStart = {
             ...start,
             patientIds: startPatientIds
 		}
-		console.log(newStart)
 
         const finishPatientIds = Array.from(finish.patientIds);
         finishPatientIds.splice(destination.index, 0, draggableId);
@@ -95,7 +123,7 @@ class App extends Component {
 			<BrowserRouter>
 				<Header />
 				<Switch>
-					<Route path="/" exact render={() => <Home data={this.state} onDragEnd={this.onDragEnd} />} />
+					<Route path="/" exact render={() => <Home data={this.state} onDragEnd={this.onDragEnd} addPatient={this.addPatient} />} />
 					<Route path="/" render={() => <div>404</div>} />
 				</Switch>
 			</BrowserRouter>

@@ -11,7 +11,7 @@ export default function Patient(props) {
         <Draggable draggableId={id} index={props.index}>
             {(provided, snapshot) => {
                 const style = {
-                    backgroundColor: snapshot.isDragging ? '#EEEEEE' : 'white',
+                    backgroundColor: snapshot.isDragging ? 'white' : '#EEEEEE',
                     ...provided.draggableProps.style,
                 };
 
@@ -19,7 +19,6 @@ export default function Patient(props) {
                     <div className="patient"
                         ref={provided.innerRef}
                         {...provided.draggableProps}
-                        isDragging={snapshot.isDragging}
                         style={style}
                         {...provided.dragHandleProps}
                     >

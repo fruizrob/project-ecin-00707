@@ -37,7 +37,6 @@
     flex-direction: column;
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
-    background: white;
 }
 
 .sector .sector-description {
@@ -52,5 +51,28 @@
 }
 
 .sector .sector-droppable {
-    height: 60vh;
+    height: 50vh;
+    overflow-y: scroll;
+    transition: background-color 0.2s ease;
 }
+
+.sector .sector-add-patient {
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    cursor: pointer;
+    background: white;
+    border-top: 1px lightgray solid;
+    transition: background-color 0.2s ease;
+}
+
+.sector-add-patient img {
+    margin-right: 0.5em;
+}
+
+.sector .sector-add-patient:hover {
+    background: #EEEEEE; 
+}
+
+
+
