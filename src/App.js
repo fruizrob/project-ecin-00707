@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/homepage/Home';
 import SectorDetail from './components/sector/SectorDetail';
+import PatientDetail from './components/patient/PatientDetail';
 
 import data from './data.json';
 class App extends Component {
@@ -126,6 +127,7 @@ class App extends Component {
 				<Switch>
 					<Route path="/" exact render={() => <Home data={this.state} onDragEnd={this.onDragEnd} addPatient={this.addPatient} />} />
 					<Route path="/sector/:id" exact render={(props) => <SectorDetail {...props} />} />
+					<Route path="/patient/:id" exact render={(props) => <PatientDetail {...props} />} />
 					<Route path="/" render={() => <div>404</div>} />
 				</Switch>
 			</BrowserRouter>
