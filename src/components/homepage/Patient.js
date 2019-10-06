@@ -1,6 +1,6 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import icon from '../patient.svg';
+import icon from '../../patient.svg';
 
 import "./Patient.css";
 

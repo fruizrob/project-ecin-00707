@@ -1,7 +1,8 @@
 import React from 'react';
-import { Droppable } from 'react-beautiful-dnd'
+import { Droppable } from 'react-beautiful-dnd';
+import { Link } from 'react-router-dom';
 import Patient from './Patient';
-import addIcon from '../add.svg';
+import addIcon from '../../add.svg';
 
 import './Sector.css';
 
@@ -11,11 +12,12 @@ export default function Sector(props) {
     return (
         <div className="aux-container-sector">
             <div className="sector" >
-                <div className="sector-header" style={{ backgroundColor: color }}>
-                    <p className="sector-category">{description}</p>
-                    <h5 className="sector-title">{title}</h5>
-                </div>
-
+                <Link to={`sector/${id}`}>
+                    <div className="sector-header" style={{ backgroundColor: color }}>
+                        <p className="sector-category">{description}</p>
+                        <h5 className="sector-title">{title}</h5>
+                    </div>
+                </Link>
                 <div className="sector-content">
                     <p className="sector-description">'Information'</p>
                     <Droppable droppableId={id}>
