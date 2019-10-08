@@ -1,7 +1,9 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import { Link } from 'react-router-dom';
+import { Subscribe } from 'unstated';
 import Patient from './Patient';
+import PatientContainer from '../../containers/PatientContainer';
 import addIcon from '../../add.svg';
 
 import './Sector.css';
@@ -34,10 +36,14 @@ export default function Sector(props) {
                             </div>
                         )}
                     </Droppable>
-                    <div className="sector-add-patient" onClick={() => props.addPatient(id)}>
-                        <img className="icon-add" width="14" alt="icon-patient" src={addIcon} />
-                        <p>Agregar un paciente</p>
-                    </div>
+                    <Subscribe to={[ PatientContainer ]}>
+                        {(patientContainer) => (
+                            <div className="sector-add-patient" onClick={() => patientContainer.addPatient(id)}>
+                                <img className="icon-add" width="14" alt="icon-patient" src={addIcon} />
+                                <p>Agregar un paciente</p>
+                            </div>
+                        )}
+                    </Subscribe>
                 </div>
             </div>
         </div>

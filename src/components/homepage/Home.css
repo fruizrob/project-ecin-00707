@@ -1,9 +1,12 @@
 .homepage .homepage-container {
     display: flex;
-    margin:  2em 0 0;   
-    height: 80vh;
+    align-items: center;
+    padding: 3em 0;
 }
 
 .homepage {
+    display: flex;
+    align-items: center;
     overflow-x: scroll;
+    margin: auto 0;
 }

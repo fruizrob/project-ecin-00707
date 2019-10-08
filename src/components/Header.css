@@ -23,11 +23,12 @@ header .title {
 header .menu {
     display: flex;
     overflow-x: auto;
-    margin: -1em 0;
+    margin: 0;
     padding: 1em 0;
 }
 
 header .menu p {
+    margin: 0;
     padding: 0 1em;
 }
 
