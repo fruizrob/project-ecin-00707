@@ -6,10 +6,10 @@ export default class PatientContainer extends Container {
 
     constructor(props = {}) {
         super();
-        this.state = {
-            patients: data.patients
-        };
         this.sectors = new SectorContainer()
+		this.state = {
+			patients: data.patients
+		};
     }
 
     addPatient = (id) => {
@@ -43,6 +43,12 @@ export default class PatientContainer extends Container {
         this.setState({
             patients: newPatients
         })
-    }
+	}
+	
+	getPatientsBySector = (sectorId) => {
+		const { sectors } = this.sectors.state;
+		const patientIds = sectors[sectorId-1].patientIds;
+		return this.state.patients.filter(patient => patientIds.includes(patient.id));
+	}
 
 }
