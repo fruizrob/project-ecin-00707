@@ -62,36 +62,22 @@ export default class SectorDetail extends Component {
                             editable={{
                                 onRowAdd: newData => new Promise((resolve, reject) => {
                                     setTimeout(() => {
-                                        {
-                                            const data = this.state.data;
-                                            data.push(newData);
-                                            this.setState({ data }, () => resolve());
-                                        }
-                                        resolve()
+                                        resolve();
+                                        patientContainer.addPatient(this.props.match.params.id, newData);
                                     }, 1000)
                                 }),
 
                                 onRowUpdate: (newData, oldData) => new Promise((resolve, reject) => {
                                     setTimeout(() => {
-                                        {
-                                            const data = this.state.data;
-                                            const index = data.indexOf(oldData);
-                                            data[index] = newData;
-                                            this.setState({ data }, () => resolve());
-                                        }
-                                        resolve()
+                                        resolve();
+                                        patientContainer.updatePatient(newData, oldData);
                                     }, 1000)
                                 }),
                                 
                                 onRowDelete: oldData => new Promise((resolve, reject) => {
-                                    setTimeout(() => {
-                                        {
-                                            let data = this.state.data;
-                                            const index = data.indexOf(oldData);
-                                            data.splice(index, 1);
-                                            this.setState({ data }, () => resolve());
-                                        }
+                                    setTimeout(() => {   
                                         resolve()
+                                        patientContainer.deletePatient(this.props.match.params.id, oldData);
                                     }, 1000)
                                 }),
                             }}  
