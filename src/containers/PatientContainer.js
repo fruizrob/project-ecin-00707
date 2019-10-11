@@ -1,13 +1,21 @@
 import { Container } from 'unstated';
 import SectorContainer from './SectorContainer';
+import moment from 'moment'
 import data from '../data.json';
+
+const patients = data.patients.map(patient => {
+	return {
+		...patient,
+		start: moment()
+	}
+})
 export default class PatientContainer extends Container {
 
     constructor(props = {}) {
         super();
         this.sectors = new SectorContainer()
 		this.state = {
-			patients: data.patients,
+			patients,
 			id: data.patients.length + 1
 		};
     }
@@ -34,7 +42,7 @@ export default class PatientContainer extends Container {
 			newPatients.push({
 				id: this.state.id,
 				name: "Felipe Ruiz",
-				time: "03:45",
+				start: moment(),
 				years: "22"
 			});
 		}

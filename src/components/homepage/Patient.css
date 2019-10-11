@@ -2,8 +2,8 @@
     display: flex;
     padding: 1em;
     margin: 0.5em;
-    border: 1px lightgrey solid;
-    border-radius: 4px;
+    border: 1px #d3d3d3 solid;
+    border-radius: 2px;
     align-items: center;
     transition: background-color 0.2s ease;
 }
@@ -21,4 +21,9 @@
     display: inline-flex;
     width: 100%;
     justify-content: space-between
+}
+
+.patient-content p {
+    font-size: 14px;
+    font-weight: 400;
 }

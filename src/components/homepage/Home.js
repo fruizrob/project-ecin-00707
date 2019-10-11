@@ -11,7 +11,7 @@ import './Home.css';
 
 export default class Home extends Component {
 
-    onDragEnd = (result, sectors, sectorsContainer) => {
+    onDragEnd = (result, sectors, sectorsStore) => {
         const { destination, source, draggableId } = result;
 
         if(!destination) {
@@ -55,7 +55,7 @@ export default class Home extends Component {
 			const newSectors = sectors;
 			newSectors[indexFinish] = newSector;
             
-            sectorsContainer.newState(newSectors);
+            sectorsStore.newState(newSectors);
             return;
         }
 
@@ -77,22 +77,22 @@ export default class Home extends Component {
 		newSectors[indexStart] = newStart;
 		newSectors[indexFinish] = newFinish;
 
-        sectorsContainer.newState(newSectors);
+        sectorsStore.newState(newSectors);
         return;
     };
 
     render() {
         return (
             <Subscribe to={[ SectorContainer, PatientContainer ]}>
-                {(sectorsContainer, patientsContainer) => {
+                {(sectorsStore, patientsStore) => {
 
-                    const { sectors } = sectorsContainer.state;
-                    const { patients } = patientsContainer.state;
-                    
+                    const { sectors } = sectorsStore.state;
+                    const { patients } = patientsStore.state;
+
                     return (
                         <section className="homepage">
                             <DragDropContext
-                                onDragEnd={(result) => this.onDragEnd(result, sectors, sectorsContainer)}
+                                onDragEnd={(result) => this.onDragEnd(result, sectors, sectorsStore)}
                             >
                                 <div className="homepage-container">
                                     {
@@ -107,7 +107,13 @@ export default class Home extends Component {
                                             })
 
                                             return (
-                                                <Sector sector={sector} addPatient={this.props.addPatient} patients={sectorPatients} key={sector.id} />
+                                                <Sector 
+                                                    patientsStore={patientsStore} 
+                                                    sector={sector} 
+                                                    addPatient={this.props.addPatient} 
+                                                    patients={sectorPatients} 
+                                                    key={sector.id} 
+                                                />
                                             )
                                         })
                                     }

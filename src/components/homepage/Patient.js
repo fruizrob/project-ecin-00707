@@ -1,18 +1,21 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { Link } from 'react-router-dom';
+import Timer from './Timer';
+
 import icon from '../../patient.svg';
 
 import "./Patient.css";
+import color from '@material-ui/core/colors/grey';
 
 export default function Patient(props) {
-    const { id, name, time } = props.patient;
+    const { id, name, time, start } = props.patient;
 
     return (
         <Draggable draggableId={id} index={props.index}>
             {(provided, snapshot) => {
                 const style = {
-                    backgroundColor: snapshot.isDragging ? 'white' : '#EEEEEE',
+                    backgroundColor: snapshot.isDragging ? 'white' : '#fbf9fa',
                     ...provided.draggableProps.style,
                 };
 
@@ -23,13 +26,12 @@ export default function Patient(props) {
                             {...provided.draggableProps}
                             style={style}
                             {...provided.dragHandleProps}
-                        >
-                            
-                                <img className="icon" alt="icon-patient" src={icon} />
-                                <div className="patient-content">
-                                    <p>{name}</p>    
-                                    <p className="patient-time">{time}</p>
-                                </div>
+                        >                            
+                            <img className="icon" alt="icon-patient" src={icon} />
+                            <div className="patient-content">
+                                <p>{name}</p>    
+                                <Timer start={start} time={time} />
+                            </div>
                         </div>
                     </Link>
                 )
