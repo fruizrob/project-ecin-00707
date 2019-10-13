@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Subscribe } from 'unstated';
 import MaterialTable from 'material-table';
-import PatientContainer from '../../containers/PatientContainer';
 import './SectorDetail.css';
 
 export default class SectorDetail extends Component {
@@ -44,48 +42,46 @@ export default class SectorDetail extends Component {
 
     render() {
 
-        return (
-            <Subscribe to={[ PatientContainer ]}>
-                {(patientContainer) => (
-                    <section className="sector-page">
-                        <MaterialTable
-                            title={`Sector ${this.props.match.params.id}`}
-                            options={{
-                                headerStyle: {
-                                    backgroundColor: `${patientContainer.sectors.state.sectors[this.props.match.params.id-1].color}`,
-                                    color: 'white',
-                                    fontSize: '1em'
-                                },
-                            }}
-                            columns={this.state.columns}
-                            data={patientContainer.getPatientsBySector(this.props.match.params.id)}
-                            editable={{
-                                onRowAdd: newData => new Promise((resolve, reject) => {
-                                    setTimeout(() => {
-                                        resolve();
-                                        patientContainer.addPatient(this.props.match.params.id, newData);
-                                    }, 1000)
-                                }),
+        const { patientStore } = this.props;
 
-                                onRowUpdate: (newData, oldData) => new Promise((resolve, reject) => {
-                                    setTimeout(() => {
-                                        resolve();
-                                        patientContainer.updatePatient(newData, oldData);
-                                    }, 1000)
-                                }),
-                                
-                                onRowDelete: oldData => new Promise((resolve, reject) => {
-                                    setTimeout(() => {   
-                                        resolve()
-                                        patientContainer.deletePatient(this.props.match.params.id, oldData);
-                                    }, 1000)
-                                }),
-                            }}  
-                            onRowClick={(event, rowData, togglePanel) => alert(`go to patient ${rowData.id}`)}
-                        />
-                    </section>
-                )}
-            </Subscribe>
+        return (
+            <section className="sector-page">
+                <MaterialTable
+                    title={`Sector ${this.props.match.params.id}`}
+                    options={{
+                        headerStyle: {
+                            backgroundColor: `${patientStore.sectors.state.sectors[this.props.match.params.id-1].color}`,
+                            color: 'white',
+                            fontSize: '1em'
+                        },
+                    }}
+                    columns={this.state.columns}
+                    data={patientStore.getPatientsBySector(this.props.match.params.id)}
+                    editable={{
+                        onRowAdd: newData => new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                resolve();
+                                patientStore.add(this.props.match.params.id, newData);
+                            }, 1000)
+                        }),
+
+                        onRowUpdate: (newData, oldData) => new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                resolve();
+                                patientStore.update(newData, oldData);
+                            }, 1000)
+                        }),
+                        
+                        onRowDelete: oldData => new Promise((resolve, reject) => {
+                            setTimeout(() => {   
+                                resolve()
+                                patientStore.delete(this.props.match.params.id, oldData);
+                            }, 1000)
+                        }),
+                    }}  
+                    onRowClick={(event, rowData, togglePanel) => alert(`go to patient ${rowData.id}`)}
+                />
+            </section>
         )
     }
 }

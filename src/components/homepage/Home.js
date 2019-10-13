@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd'
-import { Subscribe } from 'unstated'
 import Sector from './Sector';
-
-import SectorContainer from '../../containers/SectorContainer';
-import PatientContainer from '../../containers/PatientContainer';
-
 import './Home.css';
-
 
 export default class Home extends Component {
 
-    onDragEnd = (result, sectors, sectorsStore) => {
+    onDragEnd = (result, sectors, sectorStore) => {
         const { destination, source, draggableId } = result;
 
         if(!destination) {
@@ -55,7 +49,7 @@ export default class Home extends Component {
 			const newSectors = sectors;
 			newSectors[indexFinish] = newSector;
             
-            sectorsStore.newState(newSectors);
+            sectorStore.newState(newSectors);
             return;
         }
 
@@ -64,66 +58,59 @@ export default class Home extends Component {
         const newStart = {
             ...start,
             patientIds: startPatientIds
-		}
+		};
 
         const finishPatientIds = Array.from(finish.patientIds);
         finishPatientIds.splice(destination.index, 0, draggableId);
         const newFinish = {
             ...finish,
             patientIds: finishPatientIds
-		}
+		};
 		
 		const newSectors = sectors;
 		newSectors[indexStart] = newStart;
 		newSectors[indexFinish] = newFinish;
 
-        sectorsStore.newState(newSectors);
+        sectorStore.newState(newSectors);
         return;
     };
 
     render() {
+
+        const { sectorStore, patientStore } = this.props;
+        const { sectors } = sectorStore.state;
+        const { patients } = patientStore.state;
+
         return (
-            <Subscribe to={[ SectorContainer, PatientContainer ]}>
-                {(sectorsStore, patientsStore) => {
+            <section className="homepage">
+                <DragDropContext
+                    onDragEnd={(result) => this.onDragEnd(result, sectors, sectorStore)}
+                >
+                    <div className="homepage-container">
+                        {
+                            sectors.map((sector) => {
+                                const sectorPatients = sector.patientIds.map(id => {
+                                    let obj;
+                                    patients.forEach(patient => {
+                                        if(patient.id === id)
+                                            obj = patient;
+                                    })
+                                    return obj;
+                                })
 
-                    const { sectors } = sectorsStore.state;
-                    const { patients } = patientsStore.state;
-
-                    return (
-                        <section className="homepage">
-                            <DragDropContext
-                                onDragEnd={(result) => this.onDragEnd(result, sectors, sectorsStore)}
-                            >
-                                <div className="homepage-container">
-                                    {
-                                        sectors.map((sector) => {
-                                            const sectorPatients = sector.patientIds.map(id => {
-                                                let obj;
-                                                patients.forEach(patient => {
-                                                    if(patient.id === id)
-                                                        obj = patient;
-                                                })
-                                                return obj;
-                                            })
-
-                                            return (
-                                                <Sector 
-                                                    patientsStore={patientsStore} 
-                                                    sector={sector} 
-                                                    addPatient={this.props.addPatient} 
-                                                    patients={sectorPatients} 
-                                                    key={sector.id} 
-                                                />
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </DragDropContext>
-                        </section>
-                    )
-                }}
-            </Subscribe>
+                                return (
+                                    <Sector 
+                                        patientStore={patientStore} 
+                                        sector={sector} 
+                                        patients={sectorPatients} 
+                                        key={sector.id} 
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                </DragDropContext>
+            </section>
         )
     }
 }
-

@@ -20,7 +20,7 @@ export default class PatientContainer extends Container {
 		};
     }
 
-    addPatient = (sectorId, newPatient = undefined) => {
+    add = (sectorId, newPatient = undefined) => {
 		const { sectors } = this.sectors.state;
         let sector; 
         let indexSector;
@@ -60,7 +60,7 @@ export default class PatientContainer extends Container {
         })
 	}
 
-	updatePatient = (newPatient, oldPatient) => {
+	update = (newPatient, oldPatient) => {
 		const patients = this.state.patients;
 		const index = patients.indexOf(oldPatient);
 		patients[index] = {
@@ -73,7 +73,7 @@ export default class PatientContainer extends Container {
 		});
 	}
 	
-	deletePatient = (idSector, oldPatient) => {
+	delete = (idSector, oldPatient) => {
 		const { sectors } = this.sectors.state;
 		sectors[idSector-1].patientIds.splice(sectors[idSector-1].patientIds.indexOf(oldPatient.id), 1)
 
@@ -86,6 +86,16 @@ export default class PatientContainer extends Container {
 		this.setState({
 			patients,
 		})
+	}
+
+	get = (id) => {
+		console.log([this.state.patients])
+		let patient;
+		this.state.patients.forEach(obj => {
+			if(obj.id === Number(id))
+				patient = obj
+		})
+		return patient;
 	}
 
 	getPatientsBySector = (sectorId) => {

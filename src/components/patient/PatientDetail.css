@@ -1,3 +1,151 @@
 .patient-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fbf9fa;
+    border: solid 1px #d3d3d3;
+    width: 30em;
+    margin: 1em auto;
+}
+
+.patient-page .patient-header {
+    margin: 0 1em;
+    padding: 1em;
+    width: 24em;
+    border-bottom: 2px solid black;
+}
+
+.patient-page .patient-header-extra p {
+    border-radius: 2em;
+    font-size: 1em; 
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+    letter-spacing: -.025em;
+    border: 1px solid black;
+    padding: 0 0.5em;
+}
+
+.patient-page .patient-header-extra {
+    display: flex;
+    justify-content: space-between;
+}
+
+.patient-page .patient-name {
+    font-size: 3em; 
+    font-weight: 200;
+    margin: 0 0 -0.025em;
+    letter-spacing: -.025em;
+}
+
+.patient-page .patient-type {
+    font-size: 1em; 
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+
+.patient-page .patient-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em; 
+    padding: 0 1em;
+    width: 24em;
+    border-bottom: 2px solid black;
+}
+
+.patient-page .patient-content h4 {
+    font-size: 1em;
+    padding: 0;
+    margin: 1em 0 0;
+    font-weight: 500
+}
+
+.patient-page .patient-diagnosis {
+    text-align: justify;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.patient-page .patient-details {
+    display: grid;
+    grid-template-columns: 12em 12em;
+    width: 24em;
+    margin-bottom: 1em;
+}
+
+.patient-attribute {
+    display: block;
+    width: 12em;
+    padding-left: 0.5em;
+    margin: 0.5em 0;
+    border-left: 2px solid black;
+}
+
+.patient-attribute p {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+}
+
+.patient-page .patient-attribute-value {
+    font-weight: 200;
+}
+
+.patient-btns {
+    display: flex;
+    padding-bottom: 1em;
+}
+
+.patient-btns svg {
+    width: 36px;
+    height: 36px;
+    margin: 0 0.5em;
+}
+
+.btn-discharge  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
+    padding: 0.5em;
+    width: 10em;
     text-align: center;
+    margin: 0 1em;
+    color: rgb(33, 186, 69);
+    border: 1px solid rgb(33, 186, 69);
+    background-color: white;
+    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+.btn-discharge:hover  {
+    color: white;
+    background-color: rgb(33, 186, 69);
+}
+
+.btn-hospitalize {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
+    padding: 0.5em;
+    width: 10em;
+    text-align: center;
+    margin: 0 1em;
+    color: rgb(84, 200, 255);;
+    border: 1px solid rgb(84, 200, 255);
+    background-color: white;
+    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+.btn-hospitalize:hover  {
+    color: white;
+    background-color: rgb(84, 200, 255);
+}
+
+.btn-discharge svg path, .btn-hospitalize svg path{
+    fill: currentColor;
 }

@@ -9,8 +9,8 @@ export default function Header() {
             <div className="container">
                 <Link className="title" to="/">Unidad de Emergencia</Link>
                 <div className="menu">
-                    <p>'Add patient'</p>
-                    <p>'Add stretcher'</p>
+                    <p>Iniciar jornada</p>
+                    <p>Generar reporte</p>
                     <p>etc</p>
                 </div>
             </div>

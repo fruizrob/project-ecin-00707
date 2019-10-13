@@ -2,11 +2,8 @@ import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { Link } from 'react-router-dom';
 import Timer from './Timer';
-
 import icon from '../../patient.svg';
-
 import "./Patient.css";
-import color from '@material-ui/core/colors/grey';
 
 export default function Patient(props) {
     const { id, name, time, start } = props.patient;

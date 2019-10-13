@@ -7,16 +7,24 @@ export default class Timer extends Component {
         time: this.props.time
     }
 
+    updateTime = () => {
+        let seconds = moment().diff(this.props.start, 'seconds')
+
+        const formatted = moment.utc(seconds*1000).format('HH:mm:ss');
+
+        this.setState({
+            time: formatted
+        })
+    }
+
     componentDidMount = () => {
-        setInterval(() => {
-            let seconds = moment().diff(this.props.start, 'seconds')
+        this.updateTime();
+        this.timer = setInterval(() => this.updateTime(), 1000)
+    }
 
-            const formatted = moment.utc(seconds*1000).format('HH:mm:ss');
-
-            this.setState({
-                time: formatted
-            })
-        }, 1000)
+    componentWillUnmount = () => {
+        clearInterval(this.timer);
+        this.timer = null;
     }
     
     render() {
