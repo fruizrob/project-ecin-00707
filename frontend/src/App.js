@@ -9,6 +9,7 @@ import PatientDetail from './components/patient/PatientDetail';
 
 import SectorContainer from './containers/SectorContainer';
 import PatientContainer from './containers/PatientContainer';
+import CategorizationContainer from './containers/CategorizationContainer';
 
 function Layout(props) {
 	return (
@@ -27,16 +28,18 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<Layout>
-					<Header />
-					<Provider>
-						<Subscribe to={[ SectorContainer, PatientContainer ]}>
-							{(sectorStore, patientStore) => (
-								<Switch>
-									<Route path="/" exact render={(props) => <Home {...props} sectorStore={sectorStore} patientStore={patientStore}  />} />
-									<Route path="/sector/:id" exact render={(props) => <SectorDetail  {...props} sectorStore={sectorStore} patientStore={patientStore} />} />
-									<Route path="/patient/:id" exact render={(props) => <PatientDetail {...props} sectorStore={sectorStore} patientStore={patientStore} />} />
-									<Route path="/" render={() => <div>404</div>} />
-								</Switch>
+					<Provider>	
+						<Subscribe to={[ SectorContainer, PatientContainer, CategorizationContainer]}>
+							{(sectorStore, patientStore, categorizationStore) => (
+								<>
+									<Header categorizationStore={categorizationStore} />
+									<Switch>
+										<Route path="/" exact render={(props) => <Home {...props} sectorStore={sectorStore} patientStore={patientStore} categorizationStore={categorizationStore}  />} />
+										<Route path="/sector/:id" exact render={(props) => <SectorDetail  {...props} sectorStore={sectorStore} patientStore={patientStore} />} />
+										<Route path="/patient/:id" exact render={(props) => <PatientDetail {...props} sectorStore={sectorStore} patientStore={patientStore} />} />
+										<Route path="/" render={() => <div>404</div>} />
+									</Switch>
+								</>
 							)}
 						</Subscribe>
 					</Provider>

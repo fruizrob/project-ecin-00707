@@ -1,0 +1,38 @@
+.categorization-contianer {
+    background: #0f69b4;
+    position: fixed;
+    top: 4em;
+    right: 1em;
+    width: 18em;
+    border: 1px lightgray solid;
+    min-width: 18em;
+    margin-right: 1em;
+}
+
+.categorization-header {
+    border-bottom: 1px lightgray solid;
+    color: white;
+    margin: 0 0 -3em 0;
+    padding: 1em 1em 4em;
+}
+
+.categorization-description {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+
+.categorization-title {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -.028em;
+}
+
+.categorization-content {
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}

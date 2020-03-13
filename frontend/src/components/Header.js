@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 import './Header.css';
 
-export default function Header() {
+export default function Header(props) {
+    const {categorizationStore} = props;
+
     return (
         <header>
             <div className="container">
@@ -11,7 +13,7 @@ export default function Header() {
                 <div className="menu">
                     <p>Iniciar jornada</p>
                     <p>Generar reporte</p>
-                    <p>etc</p>
+                    <p onClick={categorizationStore.toggleCategorizationSection}>Categorización</p>
                 </div>
             </div>
         </header>

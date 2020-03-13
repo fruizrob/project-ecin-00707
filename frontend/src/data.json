@@ -48,6 +48,55 @@
             "bed": 1,
             "typeBed": 2,
             "start": "000000"
+        },
+        {
+            "id": 5,
+            "name": "Felipe Ruiz",
+            "years": "22",
+            "diagnosis": "La temperatura corporal de un individuo que puede indicar fiebre.",
+            "currentAccount": "19.565.892-7",
+            "destination": "destino",
+            "him": "him",
+            "bed": 1,
+            "typeBed": 2,
+            "start": "000000"
+
+        },
+        {
+            "id": 6,
+            "name": "Moises Moraga",
+            "years": "22",
+            "diagnosis": "La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre.",
+            "currentAccount": "19.565.892-7",
+            "destination": "destino",
+            "him": "him",
+            "bed": 1,
+            "typeBed": 2,
+            "start": "000000"
+        },
+        {
+            "id": 7,
+            "name": "Cristobal Montaño",
+            "years": "23",
+            "diagnosis": "La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre.",
+            "currentAccount": "19.565.892-7",
+            "destination": "destino",
+            "him": "him",
+            "bed": 1,
+            "typeBed": 2,
+            "start": "000000"
+        },
+        {
+            "id": 8,
+            "name": "Andrea Ramirez",
+            "years": "22",
+            "diagnosis": "La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre. La temperatura corporal de un individuo que puede indicar fiebre.",
+            "currentAccount": "19.565.892-7",
+            "destination": "destino",
+            "him": "him",
+            "bed": 1,
+            "typeBed": 2,
+            "start": "000000"
         }
     ],
     "sectors": [
@@ -85,6 +134,13 @@
             "description": "No Urgente / Atención General",
             "color": "rgb(255, 204, 0)",
             "patientIds": []
+        },
+        {
+            "id": 6,
+            "title": "Categorización",
+            "description": "Pacientes en espera",
+            "color": "#0f69b4",
+            "patientIds": [5, 6, 7, 8]
         }
     ]
 }

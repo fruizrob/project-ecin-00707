@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext } from 'react-beautiful-dnd';
 import Sector from './Sector';
+import Categorization from '../categorization/Categorization';
 import './Home.css';
 
 export default class Home extends Component {
@@ -77,18 +78,37 @@ export default class Home extends Component {
 
     render() {
 
-        const { sectorStore, patientStore } = this.props;
+        const { sectorStore, patientStore, categorizationStore } = this.props;
         const { sectors } = sectorStore.state;
         const { patients } = patientStore.state;
+        const categorizationData = sectors.filter(function(sector) { return sector.id === 6 });
+        const patientsOnCategorization = categorizationData[0].patientIds.map(id => {
+            let obj;
+            patients.forEach(patient => {
+                if(patient.id === id)
+                    obj = patient
+            })
+            return obj;
+        })
+
+        let valid_sectors = sectors.filter(function(sector) { return sector.id !== 6 });
 
         return (
             <section className="homepage">
                 <DragDropContext
                     onDragEnd={(result) => this.onDragEnd(result, sectors, sectorStore)}
                 >
+                    {
+                        categorizationStore.state.activate && 
+                            <Categorization 
+                                data={categorizationData[0]} 
+                                patients={patientsOnCategorization}
+                            />
+                    }
+                    
                     <div className="homepage-container">
-                        {
-                            sectors.map((sector) => {
+                        {   
+                            valid_sectors.map((sector) => {
                                 const sectorPatients = sector.patientIds.map(id => {
                                     let obj;
                                     patients.forEach(patient => {
