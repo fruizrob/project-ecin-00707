@@ -27,8 +27,26 @@ header .menu {
     padding: 1em 0;
 }
 
-header .menu p {
+header .menu .menu-option {
+    display: flex;
     margin: 0;
     padding: 0 1em;
+    position: relative;
+}
+
+.categorization-notification {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    right: 0;
+    top: -10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
 }
 
