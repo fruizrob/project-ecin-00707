@@ -2,7 +2,7 @@
 
 namespace backend.Migrations
 {
-    public partial class MigrationControllers : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,15 +30,15 @@ namespace backend.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    age = table.Column<int>(nullable: false),
+                    years = table.Column<int>(nullable: false),
                     diagnosis = table.Column<string>(nullable: true),
                     current_acount = table.Column<int>(nullable: false),
                     destination = table.Column<string>(nullable: true),
-                    stretcher = table.Column<bool>(nullable: false),
-                    type_stretcher = table.Column<string>(nullable: true),
+                    type_bed = table.Column<string>(nullable: true),
                     more_12h = table.Column<bool>(nullable: false),
                     him = table.Column<string>(nullable: true),
-                    UGCC = table.Column<string>(nullable: true),
+                    ugcc = table.Column<string>(nullable: true),
+                    start = table.Column<int>(nullable: false),
                     sectorId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -67,9 +67,9 @@ namespace backend.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(nullable: true),
-                    availability = table.Column<int>(nullable: false),
-                    stretcher = table.Column<int>(nullable: false)
+                    title = table.Column<string>(nullable: true),
+                    color = table.Column<string>(nullable: true),
+                    num_bed = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

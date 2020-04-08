@@ -9,8 +9,8 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20200314143432_MigrationControllers")]
-    partial class MigrationControllers
+    [Migration("20200406210324_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,12 +57,6 @@ namespace backend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UGCC")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("age")
-                        .HasColumnType("int");
-
                     b.Property<int>("current_acount")
                         .HasColumnType("int");
 
@@ -81,11 +75,17 @@ namespace backend.Migrations
                     b.Property<int>("sectorId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("stretcher")
-                        .HasColumnType("bit");
+                    b.Property<int>("start")
+                        .HasColumnType("int");
 
-                    b.Property<string>("type_stretcher")
+                    b.Property<string>("type_bed")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ugcc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("years")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -120,14 +120,14 @@ namespace backend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("availability")
-                        .HasColumnType("int");
-
-                    b.Property<string>("name")
+                    b.Property<string>("color")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("stretcher")
+                    b.Property<int>("num_bed")
                         .HasColumnType("int");
+
+                    b.Property<string>("title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
