@@ -2,7 +2,7 @@
 
 namespace backend.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class CreateTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,6 +68,7 @@ namespace backend.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     title = table.Column<string>(nullable: true),
+                    description = table.Column<string>(nullable: true),
                     color = table.Column<string>(nullable: true),
                     num_bed = table.Column<int>(nullable: false)
                 },
