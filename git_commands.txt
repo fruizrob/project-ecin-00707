@@ -1,0 +1,21 @@
+-- Para copiar un repositorio git desde la fuente remota, también establece el control remoto en la fuente original para que pueda volver a extraer
+git clone <link_https>
+
+-- Para verificar el estado de los archivos que ha cambiado en su directorio de trabajo, es decir, todo lo que ha cambiado desde su último commit
+git status
+
+-- Agrega cambios a stage en su directorio de trabajo
+git add <file> 
+git add .   (Agrega todos los archivos)
+
+-- Confirma tus cambios y lo establece en un nuevo commit
+git commit -m "<tittle commit message>"
+
+-- Subir tus commits a GitHub
+git push
+
+-- Bajar los commits desde GitHub
+git pull
+
+
+
