@@ -5,7 +5,7 @@ namespace backend.Models
         public int Id { get; set; }
         public int years { get; set; }
         public string diagnosis { get; set; }
-        public int current_acount { get; set; }
+        public string current_acount { get; set; }
         public string destination { get; set; }
         public string type_bed { get; set; }
         public bool more_12h { get; set; }

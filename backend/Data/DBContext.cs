@@ -56,6 +56,120 @@ namespace backend.Data
                     color = "#0f69b4",
                     num_bed = 0
                 });
+            modelBuilder.Entity<backend.Models.patient>().HasData(
+                new {
+                    Id = 1,
+                    years = 19,
+                    diagnosis = "cod-19",
+                    current_acount = "132343413",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "camilla",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 1,
+                    start = 000000
+                },
+                new {
+                    Id = 2,
+                    years = 34,
+                    diagnosis = "dolor de cabeza",
+                    current_acount = "98773672",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "camilla",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 1,
+                    start = 000000
+                },
+                new {
+                    Id = 3,
+                    years = 29,
+                    diagnosis = "paro cardio respiratorio",
+                    current_acount = "32565476",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "camilla",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 3,
+                    start = 000000
+                },
+                new {
+                    Id = 4,
+                    years = 33,
+                    diagnosis = "corazon roto :c",
+                    current_acount = "43536453",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 6,
+                    start = 000000
+                },
+                new {
+                    Id = 5,
+                    years = 23,
+                    diagnosis = "se pego en el dedo chico del pie",
+                    current_acount = "3432355",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "camilla",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 6,
+                    start = 000000
+                },
+                new {
+                    Id = 6,
+                    years = 73,
+                    diagnosis = "torcedura de tobillo",
+                    current_acount = "4343532",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "camilla",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 6,
+                    start = 000000
+                },
+                new {
+                    Id = 7,
+                    years = 19,
+                    diagnosis = "quemaduras de gravedad",
+                    current_acount = "234-134-1341",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "camilla",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 6,
+                    start = 000000
+                },
+                new {
+                    Id = 8,
+                    years = 19,
+                    diagnosis = "fractura externa sector femur",
+                    current_acount = "213-123-2412",
+                    destination = "",
+                    stretcher = true,
+                    type_stretcher = "camilla",
+                    more_12h = false,
+                    him = "nose que es",
+                    ugcc = "menos",
+                    sectorId = 6,
+                    start = 000000
+                }
+            );
         }
     }
 }
